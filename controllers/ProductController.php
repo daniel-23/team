@@ -62,7 +62,15 @@ class ProductController
 
 	public function getListController()
 	{
-		$page = 7;
+		$url = isset($_GET['url']) ? $_GET['url'] : 'home/index';
+		$arrUrl = explode('/', $url);
+
+		$page = isset($arrUrl[1]) &&  trim($arrUrl[1]) != '' ? $arrUrl[1] : 0;
+
+		if($page != 0){
+			$page = $page * 10;
+		}
+
 		$limit = 10;
 		$products = $this->productModel->getListModel($page,$limit);
 
@@ -74,5 +82,46 @@ class ProductController
 		
 		//echo '<pre>'; print_r($products); echo '</pre>';exit;
 		return $products;
+	}
+
+	public function getPaginateController()
+	{
+		$totalProducts = $this->productModel->getTotalModel();
+		$totalPages = ceil($totalProducts / 10);
+
+		$url = isset($_GET['url']) ? $_GET['url'] : 'home/index';
+		$arrUrl = explode('/', $url);
+
+		$act = isset($arrUrl[1]) &&  trim($arrUrl[1]) != '' ? $arrUrl[1] : 0;
+		$ant = $act > 0 ? $act -1 : 0;
+		$sig = $act < ($totalPages - 1) ? $act + 1 : $act;
+
+		
+		return ['total' => $totalPages,'act' => $act, 'ant' => $ant, 'sig' => $sig];
+
+	}
+
+	public function getParamUrl($param)
+	{
+		$url = isset($_GET['url']) ? $_GET['url'] : 'home/index';
+		$arrUrl = explode('/', $url);
+		if(isset($arrUrl[$param])){
+			return $arrUrl[$param];
+		}
+		return false;
+	}
+
+	public function getProductEditController()
+	{
+		$id = $this->getParamUrl(1);
+		$product = $this->productModel->getProductEditModel($id);
+		$product['images'] = $this->productModel->getProductImagesAllModel($id);
+		return $product;
+
+	}
+
+	public function postEditProductController()
+	{
+		return 0;
 	}
 }

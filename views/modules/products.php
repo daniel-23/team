@@ -1,6 +1,7 @@
 <?php
 $product = new ProductController();
 $listProducts = $product->getListController();
+$paginate = $product->getPaginateController();
 
 ?>
 <body class="hold-transition sidebar-mini">
@@ -53,25 +54,49 @@ $listProducts = $product->getListController();
 					<div class="row">
 						<?php foreach ($listProducts as $product) : ?>
 							<div class="col-md-6">
-								<div class="attachment-block clearfix">
-									<?php if ($product['imagePrincipal']) : ?>
-										<img class="attachment-img" src="<?= APP_ROOT ?>/<?= $product['imagePrincipal'] ?>" alt="Attachment Image">
-									<?php else : ?>
-										<img class="attachment-img" src="http://placehold.it/150x100" alt="Attachment Image">
-									<?php endif; ?>
-									
-									<div class="attachment-pushed">
-										<h4 class="attachment-heading"><a href="http://www.lipsum.com/"><?= $product['name'] ?></a></h4>
-										<div class="attachment-text">
-											Description about the attachment can be placed here.
-											Lorem Ipsum is simply dummy text of the printing and typesetting industry...
-										</div>
-										<!-- /.attachment-text -->
+								<div class="card card-widget">
+									<div class="card-header">
+										<h3 class="card-title"><?= $product['name'] ?> <br><small class="description">Publicado / <?= date('d-m-Y H:i:s', strtotime($product['created_at'])) ?></small></h3>
+
+										
+
+										<!-- /.user-block -->
 									</div>
-									<!-- /.attachment-pushed -->
+									<!-- /.card-header -->
+									<div class="card-body">
+										<?php if ($product['imagePrincipal']) : ?>
+											<img class="img-fluid pad" src="<?= APP_ROOT ?>/<?= $product['imagePrincipal'] ?>" alt="Image">
+											
+										<?php else : ?>
+											<img class="img-fluid pad" src="http://placehold.it/550x350" alt="Image">
+										<?php endif; ?>
+										<br>
+										<p><?= $product['short_description'] ?></p>
+										
+									</div>
+									<!-- /.card-body -->
+									
+									
+									<div class="card-footer">
+										<a href="<?= APP_ROOT ?>/products-edit/<?= $product['id'] ?>" class="btn btn-primary">Editar</a>
+										<button class="btn btn-danger float-right">Eliminar</button>
+									</div>
+									<!-- /.card-footer -->
 								</div>
 							</div>
+							
 						<?php endforeach; ?>
+						<div class="col-12">
+							<ul class="pagination float-right">
+								<li class="page-item <?= $paginate['act'] == $paginate['ant'] ? 'disabled' : '' ?>"><a class="page-link" href="<?= APP_ROOT ?>/products/<?= $paginate['ant'] ?>">«</a></li>
+								<?php for ($i=0; $i < $paginate['total']; $i++) : ?>
+									<li class="page-item <?= $paginate['act'] == $i ? 'active' : '' ?>"><a class="page-link" href="<?= APP_ROOT ?>/products/<?= $i ?>"><?= $i+1 ?> </a></li>
+								<?php endfor; ?>
+								<li class="page-item <?= $paginate['act'] == $paginate['sig'] ? 'disabled' : '' ?>"><a class="page-link" href="<?= APP_ROOT ?>/products/<?= $paginate['sig'] ?>">»</a></li>
+							</ul>
+						</div>
+
+							
 							
 					</div>
 				</div>

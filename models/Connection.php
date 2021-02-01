@@ -7,8 +7,8 @@ class Connection {
 
 			$host = "127.0.0.1";
 			$user = "root";
-			$password = "Venezuel@2020=";
-			$database = "team";
+			$password = "root";
+			$database = "teamshop";
 			$link = new PDO("mysql:host=$host;dbname=$database", $user, $password);
 			return $link;
 		}catch (PDOException $e) {

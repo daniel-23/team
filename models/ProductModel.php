@@ -99,6 +99,55 @@ class ProductModel extends Connection
 	    }
 	}
 
+	public function getProductImagesAllModel($productId)
+	{
+		$sql = "SELECT * FROM product_images WHERE product_id = :product_id";
+		$stmt = Connection::connect()->prepare($sql);
+		$stmt->bindParam(":product_id", $productId, PDO::PARAM_INT);
+		try {
+			$stmt->execute();
+			return $stmt->fetchAll();
+	    } catch(PDOExecption $e) {
+	    	print "Error!: " . $e->getMessage() . "</br>";
+	        exit;
+	    }
+	}
+
 
 	
+
+	public function getProductEditModel($id)
+	{
+		$sql = "SELECT * FROM products WHERE id = :id";
+		$stmt = Connection::connect()->prepare($sql);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+		try {
+			$stmt->execute();
+			return $stmt->fetch();
+	    } catch(PDOExecption $e) {
+	    	print "Error!: " . $e->getMessage() . "</br>";
+	        exit;
+	    }
+	}
+
+
+	
+
+	public function getTotalModel()
+	{
+		$sql = "SELECT COUNT(id) FROM products";
+		$stmt = Connection::connect()->prepare($sql);
+		
+		try {
+			$stmt->execute();
+			$r = $stmt->fetch();
+			if ($r) {
+				return $r[0];
+			}
+			return $r;
+	    } catch(PDOExecption $e) {
+	    	print "Error!: " . $e->getMessage() . "</br>";
+	        exit;
+	    }
+	}
 }

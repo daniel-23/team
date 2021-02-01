@@ -12,6 +12,7 @@ class LinkModel
 			$action == "home" ||
 			$action == "products" ||
 			$action == "products-create" ||
+			$action == "products-edit" ||
 			$action == "logout") {
 			if (isset($_SESSION['login']) && isset($_SESSION['user']) ) {
 				$module = "views/modules/".$action.".php";

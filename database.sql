@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 01-02-2021 a las 14:15:51
+-- Tiempo de generación: 01-02-2021 a las 22:51:22
 -- Versión del servidor: 5.7.26-log
 -- Versión de PHP: 7.4.2
 
@@ -56,7 +56,11 @@ INSERT INTO `products` (`id`, `category_id`, `name`, `short_description`, `long_
 (14, 1, 'Nombre', 'aksjgd askjdghjgas dkjasgdg', 'Djhasdyg asdvasgduysagcvjahsbdaklsc alksbn', '10000.00', 1, 0, 1, 1, '2021-01-31 08:40:35', '2021-01-31 08:40:35'),
 (15, 1, 'Nombre', 'aksjgd askjdghjgas dkjasgdg', 'Djhasdyg asdvasgduysagcvjahsbdaklsc alksbn', '10000.00', 1, 0, 1, 1, '2021-01-31 08:40:53', '2021-01-31 08:40:53'),
 (16, 1, 'Nombre', 'aksjgd askjdghjgas dkjasgdg', 'Djhasdyg asdvasgduysagcvjahsbdaklsc alksbn', '10000.00', 1, 0, 1, 1, '2021-01-31 08:44:26', '2021-01-31 08:44:26'),
-(17, 1, 'Producto de Pruebas', 'Caksdigyuqwehbd', 'akjsd iusadbckjas dasjkbdcuasbcba s cjb', '20.00', 0, 1, 0, 1, '2021-01-31 09:01:18', '2021-01-31 09:01:18');
+(17, 1, 'Producto de Pruebas', 'Caksdigyuqwehbd', 'akjsd iusadbckjas dasjkbdcuasbcba s cjb', '20.00', 0, 1, 0, 1, '2021-01-31 09:01:18', '2021-01-31 09:01:18'),
+(18, 2, 'Producto', 'jasdbsadk ajksbndb', 'aksdb  aksbdiuhasiucbb', '123213.00', 1, 1, 1, 1, '2021-02-01 14:36:25', '2021-02-01 14:36:25'),
+(19, 2, 'Producto 21', 'aksjdb', 'kjasbdkjsabd', '19.00', 1, 1, 1, 1, '2021-02-01 14:40:06', '2021-02-01 14:40:06'),
+(20, 1, 'aksjbd', 'sañkdb', 'kasbd', '123.00', 1, 1, 1, 1, '2021-02-01 14:40:43', '2021-02-01 14:40:43'),
+(21, 1, 'askjd', 'alsdhsabcbicgiygascb ascgiygb', 'aksdb casbcygasb xcaskciasc', '123.00', 1, 1, 1, 1, '2021-02-01 14:42:04', '2021-02-01 14:42:04');
 
 -- --------------------------------------------------------
 
@@ -108,7 +112,15 @@ INSERT INTO `product_images` (`id`, `product_id`, `path`, `principal`, `created_
 (9, 16, 'views/img/products/c6db8c82649abd7f3f03089fb59b25e3.jpg', 0, '2021-01-31 08:44:26'),
 (10, 17, 'views/img/products/d4a686ce7c7bdf6489de0753e92f9a7f.jpeg', 1, '2021-01-31 09:01:18'),
 (11, 17, 'views/img/products/41f22933015a36380cc5f84d7a59a1d0.png', 0, '2021-01-31 09:01:18'),
-(12, 17, 'views/img/products/e567b9703c6c8fc8f8b482bc4d69faca.jpg', 0, '2021-01-31 09:01:18');
+(12, 17, 'views/img/products/e567b9703c6c8fc8f8b482bc4d69faca.jpg', 0, '2021-01-31 09:01:18'),
+(13, 18, 'views/img/products/b83df31252fce9056486fa3e0e73681e.jpeg', 1, '2021-02-01 14:36:25'),
+(14, 18, 'views/img/products/8f3fea29a05719fa479d24e2e8168aaf.jpg', 0, '2021-02-01 14:36:25'),
+(15, 19, 'views/img/products/1110c719a8d47818d1df1323db1468fa.jpg', 1, '2021-02-01 14:40:06'),
+(16, 19, 'views/img/products/c078224762032a010cc754f7fd4335cf.jpeg', 0, '2021-02-01 14:40:06'),
+(17, 20, 'views/img/products/cd0f8a8631ba36adf0c38bf977efe920.jpeg', 1, '2021-02-01 14:40:43'),
+(18, 20, 'views/img/products/40c9410ae2b922b5299c891683807887.jpg', 0, '2021-02-01 14:40:43'),
+(19, 21, 'views/img/products/843d656eeb3d7d22a8a3c231dbe6cdf8.jpg', 1, '2021-02-01 14:42:04'),
+(20, 21, 'views/img/products/b8a971db18f1aabf9e82a00dbcea625f.png', 0, '2021-02-01 14:42:04');
 
 -- --------------------------------------------------------
 
@@ -168,7 +180,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `product_categories`
@@ -180,7 +192,7 @@ ALTER TABLE `product_categories`
 -- AUTO_INCREMENT de la tabla `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
