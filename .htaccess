@@ -1,0 +1,18 @@
+#Impedir que se vea el listado de contenidos de un direcctorio
+
+Options All -Indexes
+
+#TIEMPO DE DURACION DE LA SESION
+php_value session.gc_maxlifetime 7200
+php_value session.cookie_lifetime 7200
+
+
+#URL AMIGABLES
+
+#Activar RewriteEngine
+#para esto php debe tener el modulo mod_rewrite cargado
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d  
+RewriteCond %{REQUEST_FILENAME} !-f  
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
