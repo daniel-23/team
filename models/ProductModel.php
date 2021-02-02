@@ -56,7 +56,7 @@ class ProductModel extends Connection
 
 	public function getListModel($page,$limit)
 	{
-		$sql = "SELECT * FROM products LIMIT $page, $limit";
+		$sql = "SELECT * FROM products ORDER BY name LIMIT $page, $limit";
 		$stmt = Connection::connect()->prepare($sql);
 		try {
 			$stmt->execute();

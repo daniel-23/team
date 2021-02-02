@@ -108,7 +108,10 @@ $categories = $product->getCategoriesController();
 									<div class="col-12">
 										<div class="timeline-body">
 											<?php foreach ($productEdit['images'] as $image) : ?>
-												<img src="<?= APP_ROOT ?>/<?= $image['path'] ?>" class="img-fluid img-thumbnail" style="width: 200px; height: 200px; <?= $image['principal'] == 1 ? 'background-color: #11d63e;' : ''; ?>" alt="Image">
+												<div>
+													<img src="<?= APP_ROOT ?>/<?= $image['path'] ?>" class="img-fluid img-thumbnail" style="width: 200px; height: 200px; <?= $image['principal'] == 1 ? 'background-color: #11d63e;' : ''; ?>" alt="Image">
+												</div>
+												
 											<?php endforeach; ?>
 										</div>
 									</div>
