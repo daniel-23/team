@@ -150,4 +150,21 @@ class ProductController
 		}
 
 	}
+
+	public function deleteProductController()
+	{
+		$id = $this->getParamUrl(1);
+		//echo getcwd();exit;
+		//eliminar imagenes
+		$images = $this->productModel->getProductImagesAllModel($id);
+		foreach ($images as $image) {
+			unlink($image['path']);
+			$this->productModel->deleteImgModel($image['id']);
+		}
+		$this->productModel->deleteProductModel($id);
+
+		$_SESSION['success'] = 'Producto eliminado con éxito!';
+		$url = APP_ROOT."/products";
+		header("location: $url");
+	}
 }

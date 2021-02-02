@@ -79,7 +79,8 @@ $paginate = $product->getPaginateController();
 									
 									<div class="card-footer">
 										<a href="<?= APP_ROOT ?>/products-edit/<?= $product['id'] ?>" class="btn btn-primary">Editar</a>
-										<button class="btn btn-danger float-right">Eliminar</button>
+										<a href="<?= APP_ROOT ?>/products-delete/<?= $product['id'] ?>" class="btn btn-danger float-right">Eliminar</a>
+										
 									</div>
 									<!-- /.card-footer -->
 								</div>

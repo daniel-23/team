@@ -216,4 +216,18 @@ class ProductModel extends Connection
 	        exit;
 	    }
 	}
+
+	public function deleteProductModel($id)
+	{
+		$sql = "DELETE FROM products WHERE id = :id";
+		$stmt = Connection::connect()->prepare($sql);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+		try {
+			$stmt->execute();
+			return true;
+	    } catch(PDOExecption $e) {
+	    	print "Error!: " . $e->getMessage() . "</br>";
+	        exit;
+	    }
+	}
 }
