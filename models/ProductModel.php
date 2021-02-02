@@ -118,7 +118,7 @@ class ProductModel extends Connection
 
 	public function getProductEditModel($id)
 	{
-		$sql = "SELECT * FROM products WHERE id = :id";
+		$sql = "SELECT * FROM products WHERE id = :id LIMIT 1";
 		$stmt = Connection::connect()->prepare($sql);
 		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
 		try {
@@ -147,6 +147,72 @@ class ProductModel extends Connection
 			return $r;
 	    } catch(PDOExecption $e) {
 	    	print "Error!: " . $e->getMessage() . "</br>";
+	        exit;
+	    }
+	}
+
+	public function setImgNoPrincipal($productId)
+	{
+		$sql = "UPDATE product_images SET principal = 0 WHERE product_id = :product_id";
+		$stmt = Connection::connect()->prepare($sql);
+		$stmt->bindParam(":product_id", $productId, PDO::PARAM_INT);
+		try {
+			$stmt->execute();
+			return true;
+	    } catch(PDOExecption $e) {
+	    	print "Error!: " . $e->getMessage() . "</br>";
+	        exit;
+	    }
+	}
+
+	public function setImgPrincipal($id)
+	{
+		$sql = "UPDATE product_images SET principal = 1 WHERE id = :id";
+		$stmt = Connection::connect()->prepare($sql);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+		try {
+			$stmt->execute();
+			return true;
+	    } catch(PDOExecption $e) {
+	    	print "Error!: " . $e->getMessage() . "</br>";
+	        exit;
+	    }
+	}
+
+	public function deleteImgModel($id)
+	{
+		$sql = "DELETE FROM product_images WHERE id = :id";
+		$stmt = Connection::connect()->prepare($sql);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+		try {
+			$stmt->execute();
+			return true;
+	    } catch(PDOExecption $e) {
+	    	print "Error!: " . $e->getMessage() . "</br>";
+	        exit;
+	    }
+	}
+
+	public function updateProductModel($data,$id)
+	{
+		$sql = "UPDATE products SET name = :name, category_id = :category_id, short_description = :short_description, long_description = :long_description, price = :price, is_novelty = :is_novelty, is_offer = :is_offer, is_principal = :is_principal WHERE id = :id";
+		
+		$stmt = Connection::connect()->prepare($sql);
+		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
+		$stmt->bindParam(":name", $data['name'], PDO::PARAM_STR);
+		$stmt->bindParam(":category_id", $data['category_id'], PDO::PARAM_INT);
+		$stmt->bindParam(":short_description", $data['short_description'], PDO::PARAM_STR);
+		$stmt->bindParam(":long_description", $data['long_description'], PDO::PARAM_STR);
+		$stmt->bindParam(":price", $data['price'], PDO::PARAM_STR);
+		$stmt->bindParam(":is_novelty", $data['is_novelty'], PDO::PARAM_BOOL);
+		$stmt->bindParam(":is_offer", $data['is_offer'], PDO::PARAM_BOOL);
+		$stmt->bindParam(":is_principal", $data['is_principal'], PDO::PARAM_BOOL);
+		try {
+			$stmt->execute();
+			return true;
+	    } catch(PDOExecption $e) {
+	        
+	        print "Error!: " . $e->getMessage() . "</br>";
 	        exit;
 	    }
 	}

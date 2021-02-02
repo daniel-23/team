@@ -18,6 +18,28 @@
 		.card-title {
 			width: 100%;
 		}
+
+		.img-principal {
+			background-color: #11d63e;
+		}
+
+		.deleteImg {
+            
+            top:0;
+            right:0;
+            cursor:pointer;
+            width:30px;
+            height:30px;
+            text-align:center;
+            line-height:30px;
+            
+            z-index:1;
+            color:white;
+            
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
 	</style>
 </head>
 <?php

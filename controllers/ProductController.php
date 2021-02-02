@@ -115,6 +115,12 @@ class ProductController
 	{
 		$id = $this->getParamUrl(1);
 		$product = $this->productModel->getProductEditModel($id);
+		
+		if(!$product){
+			$url = APP_ROOT."/404";
+			header("location: $url");
+		}
+		
 		$product['images'] = $this->productModel->getProductImagesAllModel($id);
 		return $product;
 
@@ -122,6 +128,26 @@ class ProductController
 
 	public function postEditProductController()
 	{
-		return 0;
+		$id = $this->getParamUrl(1);
+		if (isset($_POST['product-edit'])) {
+			$dataProduct = [
+				'name'              => strip_tags(trim($_POST['name'])),
+				'category_id'       => (int) $_POST['category_id'],
+				'short_description' => strip_tags(trim($_POST['short_description'])),
+				'long_description'  => strip_tags(trim($_POST['long_description'])),
+				'price'				=> (double) filter_var($_POST['price'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION),
+				'is_novelty'        => isset($_POST['is_novelty']) ? 1 : 0,
+				'is_offer'          => isset($_POST['is_offer']) ? 1 : 0,
+				'is_principal'      => isset($_POST['is_principal']) ? 1 : 0,
+			];
+
+			$updatedProduct = $this->productModel->updateProductModel($dataProduct,$id);
+			$_SESSION['success'] = 'Producto actualizado con éxito!';
+			$url = APP_ROOT."/products-edit/".$id;
+			header("location: $url");
+			exit;
+			
+		}
+
 	}
 }

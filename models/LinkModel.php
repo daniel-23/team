@@ -17,7 +17,8 @@ class LinkModel
 			if (isset($_SESSION['login']) && isset($_SESSION['user']) ) {
 				$module = "views/modules/".$action.".php";
 			}else{
-				header("location: no-login");
+				$url = APP_ROOT.'/no-login';
+				header("location: $url");
 				exit;
 			}
 			
