@@ -230,4 +230,25 @@ class ProductModel extends Connection
 	        exit;
 	    }
 	}
+
+	public function getProductsPrincipal($all)
+	{
+		if ($all) {
+			$sql = "SELECT * FROM products WHERE is_principal = 1";
+		}else{
+			$sql = "SELECT * FROM products WHERE is_principal = 1 ORDER BY id DESC LIMIT 8";
+		}
+		
+		$stmt = Connection::connect()->prepare($sql);
+		
+		try {
+			$stmt->execute();
+			return $stmt->fetchAll();
+	    } catch(PDOExecption $e) {
+	    	print "Error!: " . $e->getMessage() . "</br>";
+	        exit;
+	    }
+	}
+
+	
 }
