@@ -309,6 +309,29 @@ class ProductModel extends Connection
 	    }
 	}
 
+	public function getProductsNovelty($all)
+	{
+		if ($all) {
+			$sql = "SELECT products.*, product_images.path FROM products LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.is_novelty = 1 AND product_images.principal = 1 ORDER BY products.id DESC";
+		}else{
+			$sql = "SELECT products.*, product_images.path FROM products LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.is_novelty = 1 AND product_images.principal = 1 ORDER BY products.id DESC LIMIT 8";
+			
+		}
+		//echo '<pre>'; print_r($sql); echo '</pre>';
+		
+		$stmt = Connection::connect()->prepare($sql);
+		
+		try {
+			$stmt->execute();
+			return $stmt->fetchAll();
+	    } catch(PDOExecption $e) {
+	    	print "Error!: " . $e->getMessage() . "</br>";
+	        exit;
+	    }
+	}
+
+	
+
 
 	
 
