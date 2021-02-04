@@ -3,8 +3,16 @@ require 'admin/models/ProductModel.php';
 $productModel = new ProductModel();
 $title = "Team Shop";
 $all = isset($_GET['all']) && $_GET['all'] == '1' ? true : false;
-$products = $productModel->getProductsPrincipal($all);
-//echo '<pre>'; print_r($products); echo '</pre>';
+$cat = isset($_GET['cat'])  ? (int) $_GET['cat'] : false;
+if ($cat === false) {
+	header("location: index.php");
+	exit;
+}
+
+
+$products = $productModel->getProductsCategory($all,$cat);
+$category = $productModel->getCategoryModel($cat);
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -40,6 +48,7 @@ $products = $productModel->getProductsPrincipal($all);
 		<?php include_once "header.php" ?>
 		<!-- //header -->
 		
+		
 	</div>
 	<!--//banner-sec-->
 	<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
@@ -47,7 +56,7 @@ $products = $productModel->getProductsPrincipal($all);
 			<div class="inner-sec-shop px-lg-4 px-3">
                 <!---728x90--->
 
-				<h3 class="tittle-w3layouts my-lg-4 my-4">Productos principales</h3>
+				<h3 class="tittle-w3layouts my-lg-4 my-4"><?= $category['name'] ?></h3>
                 <!---728x90--->
 				<div class="row">
 					<?php foreach ($products as $product) : ?>
@@ -569,7 +578,7 @@ $products = $productModel->getProductsPrincipal($all);
 				<!-- /testimonials -->
 				<div class="testimonials py-lg-4 py-3 mt-4">
 					<div class="testimonials-inner py-lg-4 py-3">
-						<a href="index.php?all=1"><h3 class="tittle-w3layouts text-center my-lg-4 my-4">Ver mas</h3></a>
+						<a href="categories.php?cat=<?= $cat ?>&all=1"><h3 class="tittle-w3layouts text-center my-lg-4 my-4">Ver mas</h3></a>
 						
 						<!--div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner" role="listbox">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 01-02-2021 a las 22:51:22
+-- Tiempo de generación: 04-02-2021 a las 18:25:47
 -- Versión del servidor: 5.7.26-log
 -- Versión de PHP: 7.4.2
 
@@ -40,27 +40,20 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `name`, `short_description`, `long_description`, `price`, `is_novelty`, `is_offer`, `is_principal`, `available`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Producto', 'Descrip', 'Descripcion', NULL, 1, 1, 1, 1, '2021-01-30 19:04:34', '2021-01-30 19:04:34'),
-(2, 2, 'Producto', 'Descripcion', 'Desceafsad', NULL, 1, 1, 1, 1, '2021-01-30 19:25:29', '2021-01-30 19:25:29'),
-(3, 2, 'Producto', 'Descripcion', 'Desceafsad', '33.00', 1, 1, 1, 1, '2021-01-30 19:29:38', '2021-01-30 19:29:38'),
-(4, 2, 'Producto', 'Descripcion', 'Desceafsad', '33.00', 1, 1, 1, 1, '2021-01-30 19:32:33', '2021-01-30 19:32:33'),
-(5, 2, 'Producto', 'Descripcion', 'Desceafsad', '33.44', 1, 1, 1, 1, '2021-01-30 19:35:49', '2021-01-30 19:35:49'),
-(6, 2, 'Producto', 'Descripcion', 'Desceafsad', '33.44', 1, 1, 1, 1, '2021-01-30 19:37:41', '2021-01-30 19:37:41'),
-(7, 1, 'Nombre', 'aksjgd askjdghjgas dkjasgdg', 'Djhasdyg asdvasgduysagcvjahsbdaklsc alksbn', '10000.00', 1, 0, 1, 1, '2021-01-31 08:23:51', '2021-01-31 08:23:51'),
-(8, 1, 'Nombre', 'aksjgd askjdghjgas dkjasgdg', 'Djhasdyg asdvasgduysagcvjahsbdaklsc alksbn', '10000.00', 1, 0, 1, 1, '2021-01-31 08:24:28', '2021-01-31 08:24:28'),
-(9, 1, 'Nombre', 'aksjgd askjdghjgas dkjasgdg', 'Djhasdyg asdvasgduysagcvjahsbdaklsc alksbn', '10000.00', 1, 0, 1, 1, '2021-01-31 08:29:45', '2021-01-31 08:29:45'),
-(10, 1, 'Nombre', 'aksjgd askjdghjgas dkjasgdg', 'Djhasdyg asdvasgduysagcvjahsbdaklsc alksbn', '10000.00', 1, 0, 1, 1, '2021-01-31 08:30:20', '2021-01-31 08:30:20'),
-(11, 1, 'Nombre', 'aksjgd askjdghjgas dkjasgdg', 'Djhasdyg asdvasgduysagcvjahsbdaklsc alksbn', '10000.00', 1, 0, 1, 1, '2021-01-31 08:30:41', '2021-01-31 08:30:41'),
-(12, 1, 'Nombre', 'aksjgd askjdghjgas dkjasgdg', 'Djhasdyg asdvasgduysagcvjahsbdaklsc alksbn', '10000.00', 1, 0, 1, 1, '2021-01-31 08:31:11', '2021-01-31 08:31:11'),
-(13, 1, 'Nombre', 'aksjgd askjdghjgas dkjasgdg', 'Djhasdyg asdvasgduysagcvjahsbdaklsc alksbn', '10000.00', 1, 0, 1, 1, '2021-01-31 08:31:14', '2021-01-31 08:31:14'),
-(14, 1, 'Nombre', 'aksjgd askjdghjgas dkjasgdg', 'Djhasdyg asdvasgduysagcvjahsbdaklsc alksbn', '10000.00', 1, 0, 1, 1, '2021-01-31 08:40:35', '2021-01-31 08:40:35'),
-(15, 1, 'Nombre', 'aksjgd askjdghjgas dkjasgdg', 'Djhasdyg asdvasgduysagcvjahsbdaklsc alksbn', '10000.00', 1, 0, 1, 1, '2021-01-31 08:40:53', '2021-01-31 08:40:53'),
-(16, 1, 'Nombre', 'aksjgd askjdghjgas dkjasgdg', 'Djhasdyg asdvasgduysagcvjahsbdaklsc alksbn', '10000.00', 1, 0, 1, 1, '2021-01-31 08:44:26', '2021-01-31 08:44:26'),
-(17, 1, 'Producto de Pruebas', 'Caksdigyuqwehbd', 'akjsd iusadbckjas dasjkbdcuasbcba s cjb', '20.00', 0, 1, 0, 1, '2021-01-31 09:01:18', '2021-01-31 09:01:18'),
-(18, 2, 'Producto', 'jasdbsadk ajksbndb', 'aksdb  aksbdiuhasiucbb', '123213.00', 1, 1, 1, 1, '2021-02-01 14:36:25', '2021-02-01 14:36:25'),
-(19, 2, 'Producto 21', 'aksjdb', 'kjasbdkjsabd', '19.00', 1, 1, 1, 1, '2021-02-01 14:40:06', '2021-02-01 14:40:06'),
-(20, 1, 'aksjbd', 'sañkdb', 'kasbd', '123.00', 1, 1, 1, 1, '2021-02-01 14:40:43', '2021-02-01 14:40:43'),
-(21, 1, 'askjd', 'alsdhsabcbicgiygascb ascgiygb', 'aksdb casbcygasb xcaskciasc', '123.00', 1, 1, 1, 1, '2021-02-01 14:42:04', '2021-02-01 14:42:04');
+(14, 2, 'Corea', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '1000.00', 1, 0, 1, 1, '2021-01-31 08:40:35', '2021-01-31 08:40:35'),
+(15, 1, 'Dinamarca', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '100.00', 1, 1, 1, 1, '2021-01-31 08:40:53', '2021-01-31 08:40:53'),
+(16, 1, 'Finlandia', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '15.00', 0, 0, 1, 1, '2021-01-31 08:44:26', '2021-01-31 08:44:26'),
+(18, 1, 'España', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '20.00', 1, 1, 1, 1, '2021-02-01 14:36:25', '2021-02-01 14:36:25'),
+(20, 1, 'Alemania Oscuro', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '23.00', 1, 1, 1, 1, '2021-02-01 14:40:43', '2021-02-01 14:40:43'),
+(21, 1, 'Rusia', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '50.00', 1, 1, 1, 1, '2021-02-01 14:42:04', '2021-02-01 14:42:04'),
+(22, 1, 'Argentina', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '86.00', 1, 1, 1, 1, '2021-02-04 12:57:53', '2021-02-04 12:57:53'),
+(23, 1, 'Brasil', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '40.00', 0, 1, 0, 1, '2021-02-04 13:02:15', '2021-02-04 13:02:15'),
+(24, 1, 'Portugal', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '55.00', 1, 0, 0, 1, '2021-02-04 13:07:01', '2021-02-04 13:07:01'),
+(25, 2, 'Olanda', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '33.00', 1, 1, 1, 1, '2021-02-04 13:10:54', '2021-02-04 13:10:54'),
+(26, 2, 'Mexico', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '43.00', 1, 1, 1, 1, '2021-02-04 13:13:33', '2021-02-04 13:13:33'),
+(27, 2, 'Mexico', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '43.00', 1, 1, 1, 1, '2021-02-04 13:14:22', '2021-02-04 13:14:22'),
+(28, 2, 'Mexico', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '43.00', 1, 1, 1, 1, '2021-02-04 13:15:26', '2021-02-04 13:15:26'),
+(29, 2, 'Africa', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '10.00', 1, 0, 0, 1, '2021-02-04 13:18:31', '2021-02-04 13:18:31');
 
 -- --------------------------------------------------------
 
@@ -101,26 +94,48 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`id`, `product_id`, `path`, `principal`, `created_at`) VALUES
-(1, 14, 'views/img/products/8ac9a446df0977a7901cc07d1e20cfe4.jpeg', 1, '2021-01-31 08:40:35'),
-(2, 14, 'views/img/products/10de81b0817ddf5463eefb7d14ebe06a.png', 0, '2021-01-31 08:40:35'),
-(3, 14, 'views/img/products/805170da88b63701603e8adab9bc825e.jpg', 0, '2021-01-31 08:40:35'),
-(4, 15, 'views/img/products/399bfaab6f0735d8a2d65f2ba5995181.jpeg', 1, '2021-01-31 08:40:53'),
-(5, 15, 'views/img/products/264d03763b3ba6043226dedaebc8f591.png', 0, '2021-01-31 08:40:53'),
-(6, 15, 'views/img/products/c8c146145e8671c197ef350ff9bb7043.jpg', 0, '2021-01-31 08:40:53'),
-(7, 16, 'views/img/products/f1624e43be5f732533a4ca91a3334a9e.jpeg', 1, '2021-01-31 08:44:26'),
-(8, 16, 'views/img/products/5cafd00bf82dde20c54f365bfbd13135.png', 0, '2021-01-31 08:44:26'),
-(9, 16, 'views/img/products/c6db8c82649abd7f3f03089fb59b25e3.jpg', 0, '2021-01-31 08:44:26'),
-(10, 17, 'views/img/products/d4a686ce7c7bdf6489de0753e92f9a7f.jpeg', 1, '2021-01-31 09:01:18'),
-(11, 17, 'views/img/products/41f22933015a36380cc5f84d7a59a1d0.png', 0, '2021-01-31 09:01:18'),
-(12, 17, 'views/img/products/e567b9703c6c8fc8f8b482bc4d69faca.jpg', 0, '2021-01-31 09:01:18'),
-(13, 18, 'views/img/products/b83df31252fce9056486fa3e0e73681e.jpeg', 1, '2021-02-01 14:36:25'),
-(14, 18, 'views/img/products/8f3fea29a05719fa479d24e2e8168aaf.jpg', 0, '2021-02-01 14:36:25'),
-(15, 19, 'views/img/products/1110c719a8d47818d1df1323db1468fa.jpg', 1, '2021-02-01 14:40:06'),
-(16, 19, 'views/img/products/c078224762032a010cc754f7fd4335cf.jpeg', 0, '2021-02-01 14:40:06'),
-(17, 20, 'views/img/products/cd0f8a8631ba36adf0c38bf977efe920.jpeg', 1, '2021-02-01 14:40:43'),
-(18, 20, 'views/img/products/40c9410ae2b922b5299c891683807887.jpg', 0, '2021-02-01 14:40:43'),
-(19, 21, 'views/img/products/843d656eeb3d7d22a8a3c231dbe6cdf8.jpg', 1, '2021-02-01 14:42:04'),
-(20, 21, 'views/img/products/b8a971db18f1aabf9e82a00dbcea625f.png', 0, '2021-02-01 14:42:04');
+(21, 20, 'views/img/products/bf09b69a3800f049b875edea56d9b176.jpg', 0, '2021-02-04 12:46:26'),
+(22, 20, 'views/img/products/f339b028294025ac3f4f7a2593744b5e.jpg', 1, '2021-02-04 12:46:43'),
+(23, 20, 'views/img/products/205704606c7a8759a6c5c9d92bc07de1.jpg', 0, '2021-02-04 12:46:55'),
+(24, 21, 'views/img/products/c86bb4ebd7fb4af0abe07bc8a01237f1.jpg', 1, '2021-02-04 12:48:37'),
+(25, 21, 'views/img/products/dd8f29eb664b67ebadc3d686c50ba94a.jpg', 0, '2021-02-04 12:48:51'),
+(26, 21, 'views/img/products/17482707355adc3c8285f71c87ac16cc.jpg', 0, '2021-02-04 12:48:59'),
+(27, 14, 'views/img/products/474001364ef08fed92e8fb57f610c337.jpg', 1, '2021-02-04 12:50:13'),
+(28, 14, 'views/img/products/b509d7549871c447fe00b074b024cbc1.jpg', 0, '2021-02-04 12:50:25'),
+(29, 14, 'views/img/products/33c0eae56d6b4aa2d3396967498f105f.jpg', 0, '2021-02-04 12:50:35'),
+(30, 15, 'views/img/products/831807b8a69c9a1ff6b786a986067ad8.jpg', 1, '2021-02-04 12:51:23'),
+(31, 15, 'views/img/products/56e56e2882a2cfabf07f9df4b5e47a07.jpg', 0, '2021-02-04 12:51:35'),
+(32, 15, 'views/img/products/a97187e347d05737c573e653f20e115e.jpg', 0, '2021-02-04 12:51:42'),
+(33, 16, 'views/img/products/bc69fee3c0e7817e450ce440750195f4.jpg', 1, '2021-02-04 12:52:53'),
+(34, 16, 'views/img/products/97689dc7b60cc56ead640729f24b5261.jpg', 0, '2021-02-04 12:53:04'),
+(35, 16, 'views/img/products/26274309be1eb4704cb1476bb190b932.jpg', 0, '2021-02-04 12:53:12'),
+(36, 18, 'views/img/products/40ee4a262dd5448b504bf23b2bec01f3.jpg', 1, '2021-02-04 12:53:57'),
+(37, 18, 'views/img/products/0595c083983a376d2eac61e4d23b5c6b.jpg', 0, '2021-02-04 12:54:05'),
+(38, 18, 'views/img/products/e977f864aac9f0ecf83f8604f09552c5.jpg', 0, '2021-02-04 12:54:14'),
+(39, 22, 'views/img/products/1cfc2e79a60e1c9c5eca0dde24280bd3.jpg', 1, '2021-02-04 12:57:53'),
+(40, 22, 'views/img/products/60b44aea5ec1f18ba615e8b5c3444675.jpg', 0, '2021-02-04 12:57:53'),
+(41, 22, 'views/img/products/e69446e2a5c3cadc5bab8ba8d4e91802.jpg', 0, '2021-02-04 12:57:53'),
+(42, 23, 'views/img/products/15c70036d196f89f801731234bf98be7.jpg', 1, '2021-02-04 13:02:15'),
+(43, 23, 'views/img/products/3bd5eb4e8185654db319fbdc491ff91b.jpg', 0, '2021-02-04 13:02:15'),
+(44, 23, 'views/img/products/cbf6bdee1a0dae8f6b474632dedb9817.jpg', 0, '2021-02-04 13:02:15'),
+(45, 24, 'views/img/products/d3a5c6db28fcdc9db94e1a2459d44ecb.jpg', 1, '2021-02-04 13:07:01'),
+(46, 24, 'views/img/products/44d0498968bb7939285944358e20be8b.jpg', 0, '2021-02-04 13:07:01'),
+(47, 24, 'views/img/products/97f5c4c88ef70ea495df768b694cbbd4.jpg', 0, '2021-02-04 13:07:01'),
+(48, 25, 'views/img/products/338c0e3ad89c7d53955d5c949fc9b842.jpg', 1, '2021-02-04 13:10:54'),
+(49, 25, 'views/img/products/c295afc99e0a7a40d67bc69b2c014e38.jpg', 0, '2021-02-04 13:10:54'),
+(50, 25, 'views/img/products/7a68918c7179c44eaf85a221f73400bd.jpg', 0, '2021-02-04 13:10:54'),
+(51, 26, 'views/img/products/5912ea5b1bd2c6d455e6dc74b52af246.jpg', 1, '2021-02-04 13:13:33'),
+(52, 26, 'views/img/products/8f77ab58b70bafef4aee66cdfc17d1cf.jpg', 0, '2021-02-04 13:13:33'),
+(53, 26, 'views/img/products/44a72f8d20c10f442cfd4f302150bf3e.jpg', 0, '2021-02-04 13:13:33'),
+(54, 27, 'views/img/products/03d3afed4c7e9a450f9c17eddbccb255.jpg', 0, '2021-02-04 13:14:22'),
+(55, 27, 'views/img/products/b2ce300be1f74996b81bd9e7759e3619.jpg', 1, '2021-02-04 13:14:22'),
+(56, 27, 'views/img/products/6012433bd2ea01f6ba596bc8ffb98325.jpg', 0, '2021-02-04 13:14:22'),
+(57, 28, 'views/img/products/e86ebd983de3475f5c387512364b881c.jpg', 1, '2021-02-04 13:15:26'),
+(58, 28, 'views/img/products/8aec391f5ddcc95d3ff232dacea8c78d.jpg', 0, '2021-02-04 13:15:26'),
+(59, 28, 'views/img/products/c3c8b0eb899912f5c1dc1414be0aff58.jpg', 0, '2021-02-04 13:15:26'),
+(60, 29, 'views/img/products/8f65456c07dbcd79a030664a2cef6d97.jpg', 1, '2021-02-04 13:18:31'),
+(61, 29, 'views/img/products/e8a30d051a303b3fe048689166fa54d5.jpg', 0, '2021-02-04 13:18:31'),
+(62, 29, 'views/img/products/682068a4b57e6b045fcb6e171cda0928.jpg', 0, '2021-02-04 13:18:31');
 
 -- --------------------------------------------------------
 
@@ -180,7 +195,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `product_categories`
@@ -192,7 +207,7 @@ ALTER TABLE `product_categories`
 -- AUTO_INCREMENT de la tabla `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

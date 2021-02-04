@@ -8,6 +8,17 @@ class ProductController
 	function __construct()
 	{
 		$this->productModel = new ProductModel();
+		if ( version_compare(phpversion(), '5.4.0', '>=') ) {
+            $sa = session_status() === PHP_SESSION_ACTIVE ? TRUE : FALSE;
+        } else {
+            $sa = session_id() === '' ? FALSE : TRUE;
+        }
+        if (!$sa) {
+        	session_start();
+        }
+
+		
+
 	}
 	
 	public function getCategoriesController()
@@ -54,9 +65,8 @@ class ProductController
 					}
 				}
 			}
-
-			$_SESSION['success'] = 'Producto creado con éxito!';
-			header("location: products");
+			$_SESSION['products-create'] = 'Producto creado con éxito!';
+			header("location: products-create");
 		}
 	}
 
@@ -144,6 +154,7 @@ class ProductController
 			$updatedProduct = $this->productModel->updateProductModel($dataProduct,$id);
 			$_SESSION['success'] = 'Producto actualizado con éxito!';
 			$url = APP_ROOT."/products-edit/".$id;
+			$url = APP_ROOT."/products";
 			header("location: $url");
 			exit;
 			
