@@ -118,7 +118,7 @@ class ProductModel extends Connection
 
 	public function getProductEditModel($id)
 	{
-		$sql = "SELECT * FROM products WHERE id = :id LIMIT 1";
+		$sql = "SELECT products.*, product_categories.name AS category FROM products INNER JOIN product_categories ON products.category_id = product_categories.id WHERE products.id = :id LIMIT 1";
 		$stmt = Connection::connect()->prepare($sql);
 		$stmt->bindParam(":id", $id, PDO::PARAM_INT);
 		try {
@@ -233,13 +233,14 @@ class ProductModel extends Connection
 
 	public function getProductsPrincipal($all)
 	{
+
 		if ($all) {
-			$sql = "SELECT products.*, product_images.path FROM products LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.is_principal = 1 AND product_images.principal = 1 ORDER BY products.id DESC";
+			$sql = "SELECT products.*, product_images.path, product_categories.name as category FROM products INNER JOIN product_categories ON products.category_id = product_categories.id LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.is_principal = 1 AND product_images.principal = 1 ORDER BY products.id DESC";
 		}else{
-			$sql = "SELECT products.*, product_images.path FROM products LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.is_principal = 1 AND product_images.principal = 1 ORDER BY products.id DESC LIMIT 8";
+			$sql = "SELECT products.*, product_images.path, product_categories.name as category FROM products INNER JOIN product_categories ON products.category_id = product_categories.id LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.is_principal = 1 AND product_images.principal = 1 ORDER BY products.id DESC LIMIT 8";
 			
 		}
-		//echo '<pre>'; print_r($sql); echo '</pre>';
+		
 		
 		$stmt = Connection::connect()->prepare($sql);
 		
@@ -255,9 +256,9 @@ class ProductModel extends Connection
 	public function getProductsCategory($all,$cat)
 	{
 		if ($all) {
-			$sql = "SELECT products.*, product_images.path FROM products LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.category_id = $cat AND product_images.principal = 1 ORDER BY products.id DESC";
+			$sql = "SELECT products.*, product_images.path, product_categories.name as category FROM products INNER JOIN product_categories ON products.category_id = product_categories.id LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.category_id = $cat AND product_images.principal = 1 ORDER BY products.id DESC";
 		}else{
-			$sql = "SELECT products.*, product_images.path FROM products LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.category_id = $cat AND product_images.principal = 1 ORDER BY products.id DESC LIMIT 8";
+			$sql = "SELECT products.*, product_images.path, product_categories.name as category FROM products INNER JOIN product_categories ON products.category_id = product_categories.id LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.category_id = $cat AND product_images.principal = 1 ORDER BY products.id DESC LIMIT 8";
 			
 		}
 		//echo '<pre>'; print_r($sql); echo '</pre>';
@@ -291,9 +292,9 @@ class ProductModel extends Connection
 	public function getProductsOfferts($all)
 	{
 		if ($all) {
-			$sql = "SELECT products.*, product_images.path FROM products LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.is_offer = 1 AND product_images.principal = 1 ORDER BY products.id DESC";
+			$sql = "SELECT products.*, product_images.path, product_categories.name as category FROM products INNER JOIN product_categories ON products.category_id = product_categories.id LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.is_offer = 1 AND product_images.principal = 1 ORDER BY products.id DESC";
 		}else{
-			$sql = "SELECT products.*, product_images.path FROM products LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.is_offer = 1 AND product_images.principal = 1 ORDER BY products.id DESC LIMIT 8";
+			$sql = "SELECT products.*, product_images.path, product_categories.name as category FROM products INNER JOIN product_categories ON products.category_id = product_categories.id LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.is_offer = 1 AND product_images.principal = 1 ORDER BY products.id DESC LIMIT 8";
 			
 		}
 		//echo '<pre>'; print_r($sql); echo '</pre>';
@@ -312,9 +313,9 @@ class ProductModel extends Connection
 	public function getProductsNovelty($all)
 	{
 		if ($all) {
-			$sql = "SELECT products.*, product_images.path FROM products LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.is_novelty = 1 AND product_images.principal = 1 ORDER BY products.id DESC";
+			$sql = "SELECT products.*, product_images.path, product_categories.name as category FROM products INNER JOIN product_categories ON products.category_id = product_categories.id LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.is_novelty = 1 AND product_images.principal = 1 ORDER BY products.id DESC";
 		}else{
-			$sql = "SELECT products.*, product_images.path FROM products LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.is_novelty = 1 AND product_images.principal = 1 ORDER BY products.id DESC LIMIT 8";
+			$sql = "SELECT products.*, product_images.path, product_categories.name as category FROM products INNER JOIN product_categories ON products.category_id = product_categories.id LEFT JOIN product_images ON products.id = product_images.product_id WHERE products.is_novelty = 1 AND product_images.principal = 1 ORDER BY products.id DESC LIMIT 8";
 			
 		}
 		//echo '<pre>'; print_r($sql); echo '</pre>';
