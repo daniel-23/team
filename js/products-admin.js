@@ -1,5 +1,5 @@
-const apiUrl = 'http://localhost/team/api.php?';
-const imagesUrl = 'http://localhost/team/admin/';
+const apiUrl = 'http://3.16.62.63/team/api.php?';
+const imagesUrl = 'http://3.16.62.63/team/admin/';
 var principalProductsContent = $('#principal-products-content');
 var noveltyProductsContent = $('#novelty-products-content');
 var offerProductsContent = $('#offer-products-content');
