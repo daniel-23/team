@@ -23,8 +23,22 @@ function showProducts(content,products,name, all = false) {
 									<h6 class="card-title text-success">`+product.category+`</h6>
 									<p class="card-text text-justify">`+product.short_description+`</p>
 									<p class="card-text text-right">$ `+product.price+`</p>
+								</div>
+								<div class="card-footer">
+									<div class="googles single-item hvr-outline-out">
+										<form action="index.html#" method="post">
+											<input type="hidden" name="cmd" value="_cart">
+											<input type="hidden" name="add" value="1">
+											<input type="hidden" name="googles_item" value="`+product.name+`">
+											<input type="hidden" name="amount" value="`+product.price+`">
+											<button type="submit" class="googles-cart pgoogles-cart">
+												<i class="fas fa-cart-plus"></i>
+											</button>
+										</form>
+
+									</div>
 									<button typy="button" class="btn btn-primary detail" p-id="`+product.id+`">Detalle</button>
-									
+									<button typy="button" class="btn btn-info float-right" p-id="`+product.id+`"><i class="fas fa-cart-plus"></i></button>
 								</div>
 							</div>
 						</div>`);
@@ -65,7 +79,10 @@ function showProductsCategory(content,data,name, all = false) {
 									<h6 class="card-title text-success">`+product.category+`</h6>
 									<p class="card-text text-justify">`+product.short_description+`</p>
 									<p class="card-text text-right">$ `+product.price+`</p>
+								</div>
+								<div class="card-footer">
 									<button typy="button" class="btn btn-primary detail" p-id="`+product.id+`">Detalle</button>
+									<button typy="button" class="btn btn-info float-right add-card" p-id="`+product.id+`"><i class="fas fa-cart-plus"></i></button>
 								</div>
 							</div>
 						</div>`);
@@ -188,13 +205,15 @@ $(function () {
 		
 		$('#show-product-modal').modal();
 
+	}).on('click', '.add-card', function(event) {
+		event.preventDefault();
+		/* Act on the event */
+		console.log('add');
 	});
 	$('#show-product-modal').on('hide.bs.modal', function () {
-		
 		$('#product-modal-title').html('');
 		$('#product-modal-body').html('');
 	});
-
 });
 
 
