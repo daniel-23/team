@@ -101,7 +101,8 @@ function showProductsCategory(content,data,name, all = false) {
 	}
 		
 }
-$('body').append(`<div class="modal" tabindex="-1" id="show-product-modal">
+$('body').append(`<button class="btn-flotante btn-sm" type="button" id="btn-card"><i class="fas fa-cart-arrow-down"></i></button>
+	<div class="modal" tabindex="-1" id="show-product-modal">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
