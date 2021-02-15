@@ -6,6 +6,24 @@ var offerProductsContent = $('#offer-products-content');
 var categoriesProductsContent = $('#categories-products-content');
 var catAct = 0;
 
+
+const localStorageKeyName = "products";
+var cardProducts = [];
+var dataInLocalStorage = localStorage.getItem(localStorageKeyName);
+if (dataInLocalStorage !== null) {
+	cardProducts = JSON.parse(dataInLocalStorage);
+}
+console.log("cardProducts", cardProducts);
+cardProducts.forEach(item=>{
+	if (item.quantity == undefined ) {
+		item.quantity = 1;
+	}
+
+	if (item.valor == undefined ) {
+		item.valor = item.quantity * item.price;
+	}
+});
+
 function showProducts(content,products,name, all = false) {
 	content.html(`<div class="col-12"><nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
@@ -25,20 +43,9 @@ function showProducts(content,products,name, all = false) {
 									<p class="card-text text-right">$ `+product.price+`</p>
 								</div>
 								<div class="card-footer">
-									<div class="googles single-item hvr-outline-out">
-										<form action="index.html#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="googles_item" value="`+product.name+`">
-											<input type="hidden" name="amount" value="`+product.price+`">
-											<button type="submit" class="googles-cart pgoogles-cart">
-												<i class="fas fa-cart-plus"></i>
-											</button>
-										</form>
-
-									</div>
+									
 									<button typy="button" class="btn btn-primary detail" p-id="`+product.id+`">Detalle</button>
-									<button typy="button" class="btn btn-info float-right" p-id="`+product.id+`"><i class="fas fa-cart-plus"></i></button>
+									<button typy="button" class="btn btn-info float-right add-card" p-id="`+product.id+`" p-name="`+product.name+`" p-price="`+product.price+`"><i class="fas fa-cart-plus"></i></button>
 								</div>
 							</div>
 						</div>`);
@@ -82,7 +89,7 @@ function showProductsCategory(content,data,name, all = false) {
 								</div>
 								<div class="card-footer">
 									<button typy="button" class="btn btn-primary detail" p-id="`+product.id+`">Detalle</button>
-									<button typy="button" class="btn btn-info float-right add-card" p-id="`+product.id+`"><i class="fas fa-cart-plus"></i></button>
+									<button typy="button" class="btn btn-info float-right add-card" p-id="`+product.id+`" p-name="`+product.name+`" p-price="`+product.price+`"><i class="fas fa-cart-plus"></i></button>
 								</div>
 							</div>
 						</div>`);
@@ -206,14 +213,81 @@ $(function () {
 		$('#show-product-modal').modal();
 
 	}).on('click', '.add-card', function(event) {
-		event.preventDefault();
-		/* Act on the event */
 		console.log('add');
+		let product = {
+			id: $(this).attr('p-id'),
+			name: $(this).attr('p-name'),
+			price: $(this).attr('p-price'),
+			quantity: 1,
+			valor: $(this).attr('p-price'),
+		}
+		let add = false;
+		cardProducts.forEach( item => {
+			if (item.id == product.id) {
+				item.quantity = item.quantity + 1;
+				item.valor = item.quantity * item.price;
+				add = true;
+			}
+		});
+
+		if (!add) {
+			cardProducts.push(product);
+		}
+		localStorage.setItem(localStorageKeyName, JSON.stringify(cardProducts));
+
+	}).on('click', '#btn-card', function(event) {
+		$('#product-modal-title').text('Productos en el carrito');
+		armarTablaCarrito();
+		
+		$('#show-product-modal').modal();
+	}).on('click', '.deleteP', function(event) {
+		let idx = $(this).attr('idx');
+		cardProducts.splice(idx, 1);
+		if (!cardProducts.length) {
+			$('#product-modal-body').html('<h5>Su carrito esta vacio</h5>');
+		}
+		localStorage.setItem(localStorageKeyName, JSON.stringify(cardProducts));
+		//$(this).parent().parent().remove();
+		armarTablaCarrito();
 	});
 	$('#show-product-modal').on('hide.bs.modal', function () {
 		$('#product-modal-title').html('');
 		$('#product-modal-body').html('');
 	});
 });
+
+function armarTablaCarrito() {
+	$('#product-modal-body').html('');
+	if (cardProducts.length) {
+		let tbR = '';
+		let ttlC = 0;
+		let ttlV = 0;
+		cardProducts.forEach( (item, index) => {
+			ttlC += item.quantity;
+			ttlV += item.valor;
+			tbR += `<tr>
+				<td>`+item.name+`</td>
+				<td>`+item.quantity+`</td>
+				<td> $ `+item.valor+`</td>
+				<td><button class="btn btn-sm btn-danger deleteP" idx="`+index+`">X</button></td>
+			</tr>`;
+		});
+		$('#product-modal-body').html(`<table class="table table-bordered">
+			<thea>
+			<tr>
+				<th>Nombre</th>
+				<th>Cantidad</th>
+				<th>Valor</th>
+				<th>Eliminar</th>
+			</tr></thea><tbody>`+tbR+`<tr>
+				<th>Total</th>
+				<th>`+ttlC+`</th>
+				<th>$ `+ttlV+`</th>
+				<th></th>
+			</tr></tbody></table>`);
+	}else{
+		$('#product-modal-body').html('<h5>Su carrito esta vacio</h5>');
+	}
+}
 
 
