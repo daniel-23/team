@@ -261,10 +261,10 @@ function armarTablaCarrito() {
 	if (cardProducts.length) {
 		let tbR = '';
 		let ttlC = 0;
-		let ttlV = 0;
+		let ttlV = 0.00;
 		cardProducts.forEach( (item, index) => {
-			ttlC += item.quantity;
-			ttlV += item.valor;
+			ttlC += parseInt(item.quantity);
+			ttlV += parseFloat(item.valor);
 			tbR += `<tr>
 				<td>`+item.name+`</td>
 				<td>`+item.quantity+`</td>
