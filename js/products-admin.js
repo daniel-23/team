@@ -13,7 +13,7 @@ var dataInLocalStorage = localStorage.getItem(localStorageKeyName);
 if (dataInLocalStorage !== null) {
 	cardProducts = JSON.parse(dataInLocalStorage);
 }
-console.log("cardProducts", cardProducts);
+
 cardProducts.forEach(item=>{
 	if (item.quantity == undefined ) {
 		item.quantity = 1;
@@ -101,6 +101,7 @@ function showProductsCategory(content,data,name, all = false) {
 	}
 		
 }
+$('head').append(`<style type="text/css">.btn-flotante {font-size: 16px; /* Cambiar el tamaño de la tipografia */ text-transform: uppercase; /* Texto en mayusculas */ font-weight: bold; /* Fuente en negrita o bold */ color: #ffffff; /* Color del texto */ border-radius: 5px; /* Borde del boton */ letter-spacing: 2px; /* Espacio entre letras */ /*  background-color: #E91E63; Color de fondo */ padding: 10px 15px; /* Relleno del boton */ position: fixed; bottom: 40px; right: 40px; transition: all 300ms ease 0ms; box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); z-index: 99; text-align: center; background: none; letter-spacing: 2px; color: #454546; cursor: pointer; border: 1px solid #dde2e6; } .btn-flotante:hover { box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3); transform: translateY(-7px); } @media only screen and (max-width: 600px) { .btn-flotante { font-size: 14px; padding: 12px 20px; bottom: 20px; right: 20px; } } </style>`);
 $('body').append(`<button class="btn-flotante btn-sm" type="button" id="btn-card"><i class="fas fa-cart-arrow-down"></i></button>
 	<div class="modal" tabindex="-1" id="show-product-modal">
 		<div class="modal-dialog modal-lg">
@@ -214,7 +215,7 @@ $(function () {
 		$('#show-product-modal').modal();
 
 	}).on('click', '.add-card', function(event) {
-		console.log('add');
+		
 		let product = {
 			id: $(this).attr('p-id'),
 			name: $(this).attr('p-name'),
