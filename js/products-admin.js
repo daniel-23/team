@@ -34,7 +34,7 @@
 		let idc = content.attr('id');
 		products.forEach( product => {
 			
-			content.append(`<div class="col-md-3">
+			content.append(`<div class="col-md-4">
 								<div class="card mt-5">
 									<img src="`+imagesUrl+product.path+`" class="card-img-top img-fluid" alt="`+product.name+`" style="width: 200px; height: 200px;">
 									<div class="card-body">
@@ -79,7 +79,7 @@
 		let idc = content.attr('id');
 		data.products.forEach( product => {
 			
-			content.append(`<div class="col-md-3">
+			content.append(`<div class="col-md-4">
 								<div class="card mt-3">
 									<img src="`+imagesUrl+product.path+`" class="card-img-top img-fluid" alt="`+product.name+`" style="width: 200px; height: 200px;">
 									<div class="card-body">
